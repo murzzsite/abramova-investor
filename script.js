@@ -56,7 +56,7 @@ const LEAD_ENDPOINT = 'https://lead-relay.leestygpt.workers.dev/lead/TG7THXXVF6'
     const fmt = n => Math.round(n).toLocaleString('ru-RU').replace(/ /g, ' ') + ' ₽';
     const yw = n => n + (n % 10 === 1 && n !== 11 ? ' год' : (n % 10 >= 2 && n % 10 <= 4 && (n < 10 || n > 20)) ? ' года' : ' лет');
     const rows = $('#rows'), sum = $('#sum'), txt = $('#sumTxt'), st = $('#stamp');
-    let shown = 387000, raf;
+    let shown = 373750, raf;
     const tween = to => {
       cancelAnimationFrame(raf);
       const from = shown, t0 = performance.now();
@@ -71,15 +71,20 @@ const LEAD_ENDPOINT = 'https://lead-relay.leestygpt.workers.dev/lead/TG7THXXVF6'
     const render = () => {
       const m = +M.value, y = +Y.value, rate = +R.value / 100 / 12;
       $('#oM').textContent = fmt(m); $('#oY').textContent = yw(y); $('#oR').textContent = R.value + ' %';
-      let bal = 0, html = '';
+      let html = '', total = 0, interest = 0;
       for (let yr = 1; yr <= y; yr++) {
-        for (let k = 0; k < 12; k++) bal = (bal + m) * (1 + rate);
-        html += `<tr class="new" style="--i:${yr - 1}"><td>${yr}</td><td>${fmt(m * 12)}</td><td>${fmt(m * 12 * yr)}</td><td>${fmt(bal)}</td></tr>`;
+        const n = 12 * yr;
+        interest = m * (+R.value / 100 / 12) * n * (n - 1) / 2;
+        total = m * n + interest;
+        html += `<tr class="new" style="--i:${yr - 1}"><td>${yr}</td><td>${fmt(m * n)}</td><td>${fmt(interest)}</td><td>${fmt(total)}</td></tr>`;
       }
       rows.innerHTML = html;
       const paid = m * 12 * y, name = N.value.trim();
       $('#cap').textContent = name ? 'Записи по счёту: ' + name : 'Записи по счёту';
-      txt.textContent = `${name ? name + ', при' : 'При'} взносе ${fmt(m)} в месяц за ${yw(y)} ваших денег будет ${fmt(paid)}. Расчётный остаток при допущении ${R.value} % годовых; рост за счёт процента — ${fmt(Math.max(0, bal - paid))}.`;
+      txt.textContent = '';
+      const bold = s => { const e = document.createElement('b'); e.textContent = s; return e; };
+      txt.append(name ? name + ', при' : 'При', ' взносе ' + fmt(m) + ' в месяц за ' + yw(y) + ' ваших денег будет ', bold(fmt(paid)), '. При допущении ', bold(R.value + ' %'), ' годовых доход за счёт процента от взноса — ', bold(fmt(interest)), '.');
+      const bal = total;
       tween(bal);
     };
     [M, Y, R, N].forEach(e => e.addEventListener('input', render));
