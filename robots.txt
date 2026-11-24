@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://investor.abramova-elena.ru/sitemap.xml

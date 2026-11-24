@@ -141,6 +141,8 @@ const LEAD_ENDPOINT = 'https://lead-relay.leestygpt.workers.dev/lead/TG7THXXVF6'
     const btn = form.querySelector('button[type="submit"]'), orig = btn.textContent;
     const payload = {}; new FormData(form).forEach((v, k) => { payload[k] = v; });
     if (payload._gotcha) return;
+    if (!payload.consent) { btn.textContent = 'Отметьте согласие на обработку данных'; setTimeout(() => btn.textContent = orig, 2500); return; }
+    delete payload.consent;
     if (!payload.name || !payload.phone) { btn.textContent = 'Заполните имя и контакт'; setTimeout(() => btn.textContent = orig, 2500); return; }
     payload.comment = 'Тариф: ' + payload.tier;
     btn.disabled = true; btn.textContent = 'Отправляем...';
@@ -151,4 +153,13 @@ const LEAD_ENDPOINT = 'https://lead-relay.leestygpt.workers.dev/lead/TG7THXXVF6'
     } catch (err) { console.error(err); btn.textContent = 'Ошибка, попробуйте ещё раз'; }
     finally { setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3000); }
   });
+
+  // cookie notice (no trackers; remembers only that the notice was closed)
+  const ck = $('#cookie');
+  if (ck) {
+    let seen = false;
+    try { seen = localStorage.getItem('cookie_ok') === '1'; } catch (e) {}
+    if (!seen) ck.hidden = false;
+    $('#cookieOk').addEventListener('click', () => { ck.hidden = true; try { localStorage.setItem('cookie_ok', '1'); } catch (e) {} });
+  }
 })();
