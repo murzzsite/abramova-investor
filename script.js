@@ -1,3 +1,10 @@
+// Ссылки на тарифы в GetCourse. Вставьте ссылку в кавычки: кнопка тарифа сразу поведёт на неё.
+// Пока значение пустое, кнопка ведёт к форме заявки на сайте.
+const TARIFF_LINKS = {
+  'Старт': '',
+  'Инвестор': '',
+  'Премиум VIP': ''
+};
 const LEAD_ENDPOINT = 'https://lead-relay.leestygpt.workers.dev/lead/TG7THXXVF6';
 (() => {
   const root = document.documentElement;
@@ -113,7 +120,11 @@ const LEAD_ENDPOINT = 'https://lead-relay.leestygpt.workers.dev/lead/TG7THXXVF6'
   });
 
   // tier buttons set the form select
-  $$('[data-tier]').forEach(a => a.addEventListener('click', () => { const s = $('#tierSel'); if (s) s.value = a.dataset.tier; }));
+  $$('[data-tier]').forEach(a => {
+    const link = (TARIFF_LINKS[a.dataset.tier] || '').trim();
+    if (link) { a.href = link; a.target = '_blank'; a.rel = 'noopener'; return; }
+    a.addEventListener('click', () => { const s = $('#tierSel'); if (s) s.value = a.dataset.tier; });
+  });
 
   // phone mask (only when input looks like a phone)
   $$('input[type="tel"]').forEach(input => {
@@ -150,11 +161,12 @@ const LEAD_ENDPOINT = 'https://lead-relay.leestygpt.workers.dev/lead/TG7THXXVF6'
       const r = await fetch(LEAD_ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
       if (!r.ok) throw new Error('HTTP ' + r.status);
       btn.textContent = 'Заявка отправлена'; form.reset();
+      try { ym(114668679, 'reachGoal', 'lead_submit'); } catch (e) {}
     } catch (err) { console.error(err); btn.textContent = 'Ошибка, попробуйте ещё раз'; }
     finally { setTimeout(() => { btn.textContent = orig; btn.disabled = false; }, 3000); }
   });
 
-  // cookie notice (no trackers; remembers only that the notice was closed)
+  // cookie notice (Yandex Metrica is used; remembers that the notice was closed)
   const ck = $('#cookie');
   if (ck) {
     let seen = false;
