@@ -1,0 +1,71 @@
+/* Материалы к курсу «Я сам инвестор»: страницы-спутники сайта, стиль общий (styles.css) */
+body.doc{overflow-x:hidden}
+.dwrap{max-width:1120px;margin:0 auto;padding:0 var(--m)}
+.dbar{position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:2px solid var(--ink)}
+.dbar__in{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;flex-wrap:wrap;padding-block:8px}
+.dbar__mark{font:800 1.125rem var(--f-head);text-decoration:none;letter-spacing:-.01em}
+.dbar__act{display:flex;gap:10px;flex-wrap:wrap}
+.btn--line{background:transparent;border:2px solid var(--ink);color:var(--ink)}
+.btn--line:hover{background:var(--ink);color:var(--paper)}
+.dhero{margin:var(--m) 0;background:var(--paper);overflow:hidden}
+.dhero .band{height:36px}
+.dhero__body{padding:clamp(28px,5vw,64px) clamp(20px,4vw,64px) clamp(32px,5vw,64px)}
+.dtag{display:inline-block;font:700 .8125rem/1 var(--f-head);letter-spacing:.06em;text-transform:uppercase;background:var(--mint);padding:8px 12px;margin-bottom:22px}
+.dhero h1{font:800 clamp(2rem,1.3rem + 3.4vw,3.75rem)/1.02 var(--f-head);letter-spacing:-.035em;max-width:20ch;overflow-wrap:anywhere}
+.dhero p.lead{margin-top:22px;max-width:52ch;font-size:var(--s-lead)}
+.dhero__act{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.sec{padding:clamp(28px,4vw,56px) 0 0}
+.sec__head{display:flex;align-items:center;gap:16px;margin-bottom:20px}
+.sec__num{flex:0 0 auto;display:grid;place-items:center;width:44px;height:44px;background:var(--ink);color:var(--paper);font:800 1.25rem var(--f-head)}
+.sec h2{font:800 clamp(1.5rem,1.1rem + 1.6vw,2.375rem)/1.08 var(--f-head);letter-spacing:-.03em;overflow-wrap:anywhere}
+.sec__intro{max-width:64ch;margin:0 0 20px;color:var(--soft)}
+.sec__body{display:grid;gap:12px}
+.block{background:var(--paper);padding:clamp(18px,2.6vw,32px);border-left:8px solid var(--accent)}
+.block h3{font:700 1.25rem/1.2 var(--f-head);letter-spacing:-.015em;margin-bottom:14px}
+.block__sub{color:var(--soft);font-size:var(--s-small);margin:-6px 0 14px}
+.say{display:grid;grid-template-columns:116px 1fr;gap:6px 16px;align-items:start;margin:0 0 12px}
+.say:last-child{margin-bottom:0}
+.who{font:700 .75rem/1.2 var(--f-head);letter-spacing:.05em;text-transform:uppercase;padding:7px 8px;text-align:center}
+.say--you .who{background:var(--mint)}
+.say--cl .who{background:var(--sky)}
+.say--note .who{background:var(--ground)}
+.say .txt{font-size:var(--s-body);line-height:1.5;padding-top:2px;overflow-wrap:anywhere}
+.para{margin:0 0 12px;line-height:1.55;overflow-wrap:anywhere}
+.para:last-child{margin-bottom:0}
+.tip{display:grid;gap:6px;background:var(--accent);padding:16px 20px;font-size:var(--s-body);line-height:1.45;margin-top:14px}
+.tip b{font:800 .8125rem var(--f-head);letter-spacing:.06em;text-transform:uppercase}
+.list{list-style:none;padding:0;display:grid;gap:10px;margin:0}
+.list li{position:relative;padding-left:24px;line-height:1.45;overflow-wrap:anywhere}
+.list li::before{content:"";position:absolute;left:0;top:.5em;width:10px;height:10px;background:var(--accent);border-radius:50%}
+.list--no li::before{background:var(--ink);border-radius:0;transform:rotate(45deg) scale(.8)}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.mcard{background:var(--paper);padding:clamp(20px,2.6vw,32px);display:flex;flex-direction:column;gap:12px;border-top:8px solid var(--accent)}
+.mcard:nth-child(2){border-top-color:var(--mint)}
+.mcard:nth-child(3){border-top-color:var(--sky)}
+.mcard h3{font:800 1.375rem/1.15 var(--f-head);letter-spacing:-.02em}
+.mcard p{flex:1;color:var(--soft);line-height:1.5}
+.mcard .btn{align-self:flex-start}
+.stat{background:var(--paper);padding:22px 24px}
+.stat b{display:block;font:800 clamp(2rem,1.5rem + 2vw,3rem)/1 var(--f-head);letter-spacing:-.03em;margin-bottom:8px}
+.stat span{color:var(--soft);line-height:1.4;display:block}
+.dtab{width:100%;min-width:600px;border-collapse:collapse;background:var(--paper);font-size:var(--s-body)}
+.dtab th{font:700 var(--s-small) var(--f-head);text-align:left;padding:12px 14px;background:var(--mint);border:2px solid var(--ink)}
+.dtab td{padding:12px 14px;border:1px solid var(--ink);vertical-align:top}
+.tabscroll{overflow-x:auto}
+.dq{background:var(--paper);padding:clamp(18px,2.6vw,32px)}
+.dq .qa{margin-bottom:0}
+.dcta{margin:clamp(32px,4vw,56px) 0 0;background:var(--accent);padding:clamp(24px,4vw,56px);display:grid;gap:18px}
+.dcta h2{font:800 clamp(1.5rem,1.1rem + 1.6vw,2.375rem)/1.1 var(--f-head);letter-spacing:-.03em;max-width:22ch}
+.dcta p{max-width:56ch}
+.dcta .btn{background:var(--ink);color:var(--paper)}
+.dcta .btn--line{background:transparent;color:var(--ink)}
+.dcta .btn--line:hover{background:var(--ink);color:var(--paper)}
+.dcta__act{display:flex;gap:12px;flex-wrap:wrap}
+.dnote{font-size:var(--s-small);color:var(--soft);max-width:70ch;margin-top:20px;line-height:1.5}
+.dfoot{margin:clamp(32px,4vw,56px) 0 var(--m);background:var(--paper);padding:20px clamp(20px,3vw,40px);font-size:var(--s-small);color:var(--soft);display:flex;gap:8px 24px;flex-wrap:wrap;justify-content:space-between}
+.dfoot a{text-underline-offset:4px}
+.prog-lessons{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 32px}
+.prog-lessons h3{font:700 1.125rem var(--f-head);margin:0 0 12px}
+@media(max-width:900px){.grid3,.grid2,.prog-lessons{grid-template-columns:1fr}}
+@media(max-width:560px){.say{grid-template-columns:1fr}.who{text-align:left;justify-self:start;padding:6px 10px}.dbar__act .btn{padding:10px 14px}.dbar__in{padding-block:10px}}
