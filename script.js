@@ -90,7 +90,7 @@ const LEAD_ENDPOINT = 'https://lead-relay.leestygpt.workers.dev/lead/TG7THXXVF6'
       $('#cap').textContent = name ? 'Записи по счёту: ' + name : 'Записи по счёту';
       txt.textContent = '';
       const bold = s => { const e = document.createElement('b'); e.textContent = s; return e; };
-      txt.append(name ? name + ', при' : 'При', ' взносе ' + fmt(m) + ' в месяц за ' + yw(y) + ' ваших денег будет ', bold(fmt(paid)), '. При допущении ', bold(R.value + ' %'), ' годовых доход за счёт процента от взноса — ', bold(fmt(interest)), '.');
+      txt.append(name ? name + ', при' : 'При', ' взносе ' + fmt(m) + ' в месяц за ' + yw(y) + ' ваших денег будет ', bold(fmt(paid)), '. При допущении ', bold(R.value + ' %'), ' годовых доход за счёт процента от взноса - ', bold(fmt(interest)), '.');
       const bal = total;
       tween(bal);
     };

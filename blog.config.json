@@ -1,0 +1,37 @@
+{
+  "siteName": "Я сам инвестор",
+  "siteUrl": "https://investor.abramova-elena.ru",
+  "lang": "ru",
+  "repo": "murzzsite/abramova-investor",
+  "ref": "TG7THXXVF6",
+  "workerUrl": "https://lead-relay.leestygpt.workers.dev",
+  "blogTitle": "Блог",
+  "blogDescription": "Статьи об инвестициях для начинающих: с чего начать, как не бояться потерять деньги и сколько нужно для старта",
+  "homeTitle": "Полезные статьи",
+  "author": {
+    "name": "Елена Абрамова",
+    "jobTitle": "Финансовый аналитик, инвестор",
+    "type": "Person"
+  },
+  "ctaTitle": "Хотите разобраться в инвестициях по порядку?",
+  "ctaText": "Оставьте заявку на курс «Я сам инвестор»: расскажем про тарифы, рассрочку и ответим на вопросы.",
+  "ctaButton": "Оставить заявку",
+  "ctaUrl": "/#contact",
+  "disclaimer": "Материал носит образовательный характер и не является индивидуальной инвестиционной рекомендацией. Инвестиции связаны с риском потери средств, доходность не гарантирована.",
+  "telegramNotify": true,
+  "cadenceDays": 7,
+  "homeLatest": 3,
+  "staticPages": [
+    "/",
+    "/privacy.html",
+    "/presentation.html"
+  ],
+  "indexNowKey": "98574fec61add6a0c0a7ea0c761b7119",
+  "previewSecret": "cb5c472e39f9252a",
+  "theme": {
+    "accent": "var(--accent)",
+    "ink": "var(--ink)",
+    "soft": "var(--soft)",
+    "accent-soft": "color-mix(in srgb, var(--accent) 10%, #ffffff)"
+  }
+}
