@@ -17,16 +17,15 @@
       "description": "Сколько денег нужно, чтобы начать инвестировать новичку: от каких сумм можно стартовать, как выбрать свою сумму и чем регулярные взносы лучше разовой покупки.",
       "reading_time": "7 мин чтения",
       "preview_url": "https://investor.abramova-elena.ru/blog/preview/3192c351033a/skolko-deneg-nuzhno-chtoby-nachat-investirovat/"
-    },
-    {
-      "slug": "strah-poteryat-dengi-pri-investirovanii",
-      "path": "articles/strah-poteryat-dengi-pri-investirovanii.md",
-      "title": "Страх потерять деньги при инвестировании: как с ним работать и не бросить дело",
-      "description": "Боитесь потерять деньги при инвестировании? Разбираем, откуда берётся страх, чем он полезен, как снизить риск и принимать решения спокойно. Без обещаний доходности.",
-      "reading_time": "8 мин чтения",
-      "preview_url": "https://investor.abramova-elena.ru/blog/preview/debbf6ae3582/strah-poteryat-dengi-pri-investirovanii/"
     }
   ],
   "scheduled": [],
-  "published": []
+  "published": [
+    {
+      "slug": "strah-poteryat-dengi-pri-investirovanii",
+      "title": "Страх потерять деньги при инвестировании: как с ним работать и не бросить дело",
+      "url": "https://investor.abramova-elena.ru/blog/strah-poteryat-dengi-pri-investirovanii/",
+      "date": "2026-11-27"
+    }
+  ]
 }
